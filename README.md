@@ -1,3 +1,3 @@
 # CDMLB-network
 
-Hyperledger netowrk with pyhton anr R oracles
+Hyperledger network with pyhton and R oracles
