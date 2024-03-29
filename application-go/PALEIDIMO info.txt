@@ -1,0 +1,20 @@
+paleidziam tinkla:
+
+cd /home/vdledger/HLtwothree/fabric-samples/test-network/statnetwork.sh
+
+Paisleidziam du CMD sudedam teises org1 ir org2
+
+ org1
+
+ peer lifecycle chaincode package smodel.tar.gz --path ../chaincode/smodel/go --lang golang --label smodel_1.0
+
+ nukopijuojam chaincode identifikatoriu
+
+ pakeiciam smodel_1.0:......
+
+ export CC_PACKAGE_ID=smodel_1.0:828a1ce6a821a35830994105477e65799f61598ebc97ce3c1ea47c1ee3ab5c7f
+
+ ta padarom per abu org.
+
+ Paleidziam tinkla per naujo is
+

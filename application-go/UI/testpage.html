@@ -1,0 +1,91 @@
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+    <title>FLML</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <style>
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        .rowWithoutMargin{
+            margin-bottom: 0;
+        }
+
+    </style>
+
+</head>
+<body>
+<main>
+    <nav class="green lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">FLML</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/benchmark">Benchmark</a></li>
+                <li><a href="#">ML learn 2</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="sidenav">
+                <li><a href="/benchmark">Benchmark</a></li>
+                <li><a href="#">Navbar Link</a></li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <h1 class="header center green-text">Fabric Machine Learning</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <form form enctype="multipart/form-data" action="http://localhost:9111/benchmarkPost" method="post">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Benchamrking Test</span>
+                            <p>Benchamarking run with provided data file ant N hardcoded models</p>
+                        </div>
+                        <div class="card-action">
+                            <div class="row">
+                                <div>
+                                    <div class="row center">
+                                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                            <i class="material-icons right">send</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br>
+    </div>
+</main>
+<footer class="page-footer green">
+    <div class="footer-copyright">
+        <div class="container">
+            Developed by Vaidotas Drungilas with template from <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+        </div>
+    </div>
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<div class="sidenav-overlay"></div><div class="drag-target"></div></body></html>

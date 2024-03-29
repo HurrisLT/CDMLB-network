@@ -1,0 +1,173 @@
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+    <title>FLML</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <style>
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        .rowWithoutMargin{
+            margin-bottom: 0;
+        }
+
+    </style>
+
+</head>
+<body>
+    <main>
+        <nav class="green lighten-1" role="navigation">
+            <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">FLML</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="/benchmark">Benchmark</a></li>
+                    <li><a href="/showResults">Results</a></li>
+                    <li><a href="#">ML learn 2</a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="sidenav">
+                    <li><a href="/benchmark">Benchmark</a></li>
+                    <li><a href="#">Navbar Link</a></li>
+                </ul>
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <h1 class="header center green-text">Fabric Machine Learning</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="section">
+                <div class="row">
+                    <form enctype="multipart/form-data" action="http://localhost:9111/modelPost" method="post">
+                        <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title">Submit Model</span>
+                                <p>Model file should be Apache Spark DecisionTreeClassificationModel stored into folder and compressed to ZIP format</p>
+                            </div>
+                            <div class="card-action">
+                                <div class="row rowWithoutMargin">
+                                    <label>Model Library</label>
+                                    <div class="input-field">
+                                        <select class="browser-default" name="libType">
+                                            <option value="" disabled selected>Model Library</option>
+                                            <option value="AS">Apache Spark</option>
+                                            <option value="MLR3">MLR3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row rowWithoutMargin">
+                                    <label>Model Type</label>
+                                    <div class="input-field">
+                                        <select class="browser-default" name="modelType">
+                                            <option value="" disabled selected>Model Type</option>
+                                            <option value="LR">LogisticRegression</option>
+                                            <option value="DT">DecisionTree</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row rowWithoutMargin">
+                                    <div>
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <i class="material-icons left">insert_drive_file</i>
+                                                <span>Upload Model</span>
+                                                <input type="file" name="modelFile">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input placeholder="Decision_tree_model.zip" class="file-path validate" type="text">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row center">
+                                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                     <form form enctype="multipart/form-data" action="http://localhost:9111/dataPost" method="post">
+                        <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title">Submit Data</span>
+                                <p>Data format should be CSV, without labels with class label being the last column</p>
+                            </div>
+                            <div class="card-action">
+                                <div class="row rowWithoutMargin">
+                                    <div>
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>Upload Data</span>
+                                                <i class="material-icons left">insert_chart</i>
+                                                <input name="dataFile" type="file">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input name="dataFileName" placeholder="Data_file.csv"  class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row center">
+                                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                     </form>
+                </div>
+                <div class="row">
+                    <form form enctype="multipart/form-data" action="http://localhost:9111/validatePost" method="post">
+                        <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                                <span class="card-title">ValidateModelAPI</span>
+                            </div>
+                            <div class="card-action">
+                                <div class="row center">
+                                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br>
+        </div>
+    </main>
+<footer class="page-footer green">
+    <div class="footer-copyright">
+        <div class="container">
+            Developed by Vaidotas Drungilas with template from <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+        </div>
+    </div>
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<div class="sidenav-overlay"></div><div class="drag-target"></div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+    <title>FLML</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <style>
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        .rowWithoutMargin{
+            margin-bottom: 0;
+        }
+        .noTopMargin{
+            margin-top:0;
+        }
+        .materialize_margin{
+            margin-left: 5px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <main>
+        <nav class="green lighten-1" role="navigation">
+            <div class="nav-wrapper container" style="margin-top:0;"><a id="logo-container" href="/" class="brand-logo">FLML</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="/benchmark">Benchmark</a></li>
+                    <li><a href="/showResults">Results</a></li>
+                    <li><a href="#">ML learn 2</a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="sidenav">
+                    <li><a href="/benchmark">Benchmark</a></li>
+                    <li><a href="#">Navbar Link</a></li>
+                </ul>
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container" style="margin-top:0">
+                <h3 class="header center green-text">Data Stored in Fabric</h3>
+            </div>
+        </div>
+        <div class="container" style="margin-top:0;">
+            <div class="section">
+                <h5 class="header center green-text">Model Fusion</h5>
+                <h5 class="header center green-text">Decision-level fusion with equal weights: {{.BalancedLogLoss}} </h5>
+                <h5 class="header center green-text">Decision-level fusion with Shapley weights: {{.ShapleyAdjustedLogLoss}} </h5>
+                <h3 class="header center green-text">Models</h3>
+                <table class="striped-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th> type</th>
+                            <th>Library Type</th>
+                            <th>Log Loss</th>
+                            <th>AUC</th>
+                            <th>Model Shapley</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{range $key, $models := .Models}}
+                            <tr>
+                                <td>{{$models.Record.ID}}</td>
+                                <td>{{$models.Record.ModelType}}</td>
+                                <td>{{$models.Record.LibraryType}}</td>
+                                <td>{{$models.Record.Logloss}}</td>
+                                <td>{{$models.Record.Accuracy}}</td>
+                                <td>{{$models.Shapley}}</td>
+                            </tr>
+                        {{end}}
+                    </tbody>
+                </table>
+            </div>
+            <br>
+        </div>
+        {{range $graph := .Graphs}}
+            {{$graph}}
+        {{end}}
+    </main>
+<footer class="page-footer green">
+    <div class="footer-copyright">
+        <div class="container">
+            Developed by Vaidotas Drungilas with style from <a class="orange-text text-lighten-3 materialize_margin" href="http://materializecss.com"> Materialize</a>
+        </div>
+    </div>
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<div class="sidenav-overlay"></div><div class="drag-target"></div>
+</body>
+</html>
